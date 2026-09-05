@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  font-size: 22px;
+  color: #1e293b;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+/* ---------- JS Calculator ---------- */
+#display {
+  width: 100%;
+  height: 55px;
+  font-size: 26px;
+  text-align: right;
+  padding: 0 15px;
+  border: none;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #f1f5f9;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 16px 0;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #e2e8f0;
+  color: #1e293b;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  background: #cbd5e1;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn.op {
+  background: #4facfe;
+  color: white;
+}
+
+.btn.op:hover {
+  background: #3b9bfa;
+}
+
+.btn.equals {
+  background: #22c55e;
+  color: white;
+  grid-row: span 2;
+}
+
+.btn.equals:hover {
+  background: #16a34a;
+}
+
+.btn.clear {
+  background: #ef4444;
+  color: white;
+}
+
+.btn.clear:hover {
+  background: #dc2626;
+}
+
+.btn.zero {
+  grid-column: span 2;
+}
+
+/* ---------- PHP Server Form ---------- */
+.server-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.server-form input,
+.server-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+}
+
+.btn-submit {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4facfe;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #3b9bfa;
+}
+
+.result {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.result.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.result.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
