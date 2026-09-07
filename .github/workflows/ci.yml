@@ -1,0 +1,33 @@
+name: Calculator CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Check PHP version
+        run: php -v
+
+      - name: PHP syntax check
+        run: |
+          find . -name "*.php" -print0 | xargs -0 -n1 php -l
+
+      - name: Build Docker image
+        run: docker build -t calculator:test .
