@@ -46,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Calculator</h1>
+<h2>🚀 CI/CD Deployment Working!</h2>
 
   <div class="page">
 
