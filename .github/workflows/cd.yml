@@ -1,33 +1,31 @@
 name: Calculator CD
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Calculator CI"]
+    types:
+      - completed
     branches:
       - main
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: self-hosted
 
     steps:
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1.2.2
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          ref: ${{ github.event.workflow_run.head_sha }}
 
-          script: |
-            cd ~/calculator_php_cicd
-            git pull origin main
-
-            sudo docker build -t calculator:latest .
-
-            sudo docker stop calculator || true
-            sudo docker rm calculator || true
-
-            sudo docker run -d \
-              --name calculator \
-              --restart unless-stopped \
-              -p 80:80 \
-              calculator:latest
+      - name: Deploy to K3s
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl set image deployment/calculator \
+            calculator=ghcr.io/YOUR_GITHUB_USERNAME/calculator_php_cicd:${{ github.event.workflow_run.head_sha }}
+          kubectl rollout status deployment/calculator --timeout=180s

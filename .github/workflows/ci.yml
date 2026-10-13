@@ -1,16 +1,20 @@
+
 name: Calculator CI
 
 on:
   push:
     branches:
       - main
-
   pull_request:
     branches:
       - main
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  test:
+  test-and-publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,12 +26,27 @@ jobs:
         with:
           php-version: '8.2'
 
-      - name: Check PHP version
-        run: php -v
-
       - name: PHP syntax check
-        run: |
-          find . -name "*.php" -print0 | xargs -0 -n1 php -l
+        run: find . -name "*.php" -print0 | xargs -0 -n1 php -l
+
+      - name: Set lowercase image name
+        id: image
+        run: echo "name=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
 
       - name: Build Docker image
-        run: docker build -t calculator:test .
+        run: docker build -t "${{ steps.image.outputs.name }}:${{ github.sha }}" .
+
+      - name: Login to GHCR
+        if: github.event_name == 'push'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker image
+        if: github.event_name == 'push'
+        run: |
+          docker push "${{ steps.image.outputs.name }}:${{ github.sha }}"
+          docker tag "${{ steps.image.outputs.name }}:${{ github.sha }}" "${{ steps.image.outputs.name }}:latest"
+          docker push "${{ steps.image.outputs.name }}:latest"
