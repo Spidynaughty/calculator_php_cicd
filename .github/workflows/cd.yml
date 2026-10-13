@@ -27,5 +27,5 @@ jobs:
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl set image deployment/calculator \
-            calculator=ghcr.io/YOUR_GITHUB_USERNAME/calculator_php_cicd:${{ github.event.workflow_run.head_sha }}
+            calculator=ghcr.io/Spidynaughty/calculator_php_cicd:${{ github.event.workflow_run.head_sha }}
           kubectl rollout status deployment/calculator --timeout=180s
