@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
         <div class="nav-links">
           <a href="#home">Home</a>
           <a href="#about">About Us</a>
+          <a href="#game">Tic Tac Toe Game</a>
         </div>
       </nav>
     </header>
@@ -77,6 +78,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
           <li><strong>DevOps:</strong> CI/CD pipeline, containerization, Kubernetes deployment, and Terraform setup.</li>
           <li><strong>Goal:</strong> Learning and demonstrating a complete deployment workflow for a web application.</li>
         </ul>
+      </section>
+
+      <section id="game" class="game-section">
+        <div class="game-card">
+          <h2>Tic Tac Toe Game</h2>
+          <p class="subtitle">Play with X and O</p>
+          <div class="status" id="game-status">Player X's turn</div>
+          <div id="tic-tac-toe-board" class="tic-tac-toe-board" aria-label="Tic tac toe board">
+            <button class="cell" data-index="0" aria-label="Cell 1"></button>
+            <button class="cell" data-index="1" aria-label="Cell 2"></button>
+            <button class="cell" data-index="2" aria-label="Cell 3"></button>
+            <button class="cell" data-index="3" aria-label="Cell 4"></button>
+            <button class="cell" data-index="4" aria-label="Cell 5"></button>
+            <button class="cell" data-index="5" aria-label="Cell 6"></button>
+            <button class="cell" data-index="6" aria-label="Cell 7"></button>
+            <button class="cell" data-index="7" aria-label="Cell 8"></button>
+            <button class="cell" data-index="8" aria-label="Cell 9"></button>
+          </div>
+          <button class="reset-game" id="reset-game">Reset Game</button>
+        </div>
       </section>
 
       <div id="home" class="page">

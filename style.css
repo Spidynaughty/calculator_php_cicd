@@ -66,6 +66,73 @@ body {
   margin-bottom: 28px;
 }
 
+.game-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  padding: 24px;
+  width: min(90vw, 380px);
+  text-align: center;
+}
+
+.status {
+  margin: 12px 0 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tic-tac-toe-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 12px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.cell:hover {
+  background: #cbd5e1;
+}
+
+.cell:active {
+  transform: scale(0.96);
+}
+
+.cell.filled {
+  cursor: default;
+}
+
+.reset-game {
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.reset-game:hover {
+  background: #1d4ed8;
+}
+
 .about-section h1 {
   font-size: 2rem;
   margin-bottom: 16px;
