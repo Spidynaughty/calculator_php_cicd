@@ -8,10 +8,81 @@
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #1e293b;
+  padding: 0;
+}
+
+.topbar {
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 30px 15px;
+  justify-content: space-between;
+  padding: 18px 20px;
+}
+
+.brand {
+  color: #f8fafc;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #7dd3fc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 15px 40px;
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  padding: 28px 24px;
+  margin-bottom: 28px;
+}
+
+.about-section h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #0f172a;
+  text-align: left;
+}
+
+.about-section p,
+.about-section li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.about-section ul {
+  margin-top: 18px;
+  padding-left: 22px;
 }
 
 .page {
@@ -30,6 +101,12 @@ body {
 }
 
 h1 {
+  font-size: 22px;
+  color: #1e293b;
+  text-align: center;
+}
+
+h2 {
   font-size: 22px;
   color: #1e293b;
   text-align: center;

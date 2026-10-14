@@ -46,14 +46,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Calculator</h1>
-<h2>🚀 CI/CD Deployment Working!</h2>
+    <header class="topbar">
+      <nav class="navbar">
+        <div class="brand">Calculator Project</div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+        </div>
+      </nav>
+    </header>
 
-  <div class="page">
+    <main class="container">
+      <section id="about" class="about-section">
+        <h1>About Us</h1>
+        <p>
+          This project is a simple yet powerful calculator application designed to showcase
+          both frontend and backend functionality. It combines HTML, CSS, JavaScript, and PHP
+          to perform real-time calculations in the browser and server-side calculations on the
+          backend.
+        </p>
+        <p>
+          The application demonstrates how modern web projects can be deployed using CI/CD,
+          Docker, Kubernetes, and Terraform. It is a practical example of building a small
+          application, automating deployment workflows, and managing infrastructure in a clean,
+          repeatable way.
+        </p>
+        <ul>
+          <li><strong>Frontend:</strong> Interactive calculator built with JavaScript and styled with CSS.</li>
+          <li><strong>Backend:</strong> PHP-powered calculation logic for secure server processing.</li>
+          <li><strong>DevOps:</strong> CI/CD pipeline, containerization, Kubernetes deployment, and Terraform setup.</li>
+          <li><strong>Goal:</strong> Learning and demonstrating a complete deployment workflow for a web application.</li>
+        </ul>
+      </section>
+
+      <div id="home" class="page">
 
     <!-- ===================== JS LIVE CALCULATOR ===================== -->
     <div class="card">
-      <h1>Calculator</h1>
+      <h2>Calculator</h2>
       <p class="subtitle">Instant calculation with JavaScript</p>
 
       <div class="calculator">
@@ -119,7 +149,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
       <?php endif; ?>
     </div>
 
-  </div>
+    </div>
+    </main>
 
 <script src="script.js"></script>
 </body>

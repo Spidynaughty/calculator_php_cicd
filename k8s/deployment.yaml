@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: calculator
-          image: ghcr.io/YOUR_GITHUB_USERNAME/calculator_php_cicd:latest
+          image: ghcr.io/spidynaughty/calculator_php_cicd:latest
           ports:
             - containerPort: 80
           resources:
