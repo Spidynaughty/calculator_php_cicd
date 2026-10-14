@@ -58,8 +58,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
     </header>
 
     <main class="container">
+      <section class="hero-banner">
+        <div class="hero-copy">
+          <p class="eyebrow">Play • Calculate • Learn</p>
+          <h1>Smart tools for a fun and modern web experience</h1>
+          <p>
+            This project combines a calculator, a classic Tic Tac Toe game, and a clean web UI
+            to demonstrate practical frontend development and deployment workflows.
+          </p>
+        </div>
+        <div class="hero-badge">CI/CD Ready</div>
+      </section>
+
       <section id="about" class="about-section">
-        <h1>About Us</h1>
+        <h2>About Us</h2>
         <p>
           This project is a simple yet powerful calculator application designed to showcase
           both frontend and backend functionality. It combines HTML, CSS, JavaScript, and PHP
