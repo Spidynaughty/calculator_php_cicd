@@ -45,6 +45,7 @@ function calculate(expr) {
   }
 }
 
+
 // Allow keyboard input too
 document.addEventListener('keydown', (e) => {
   if (!display) {
@@ -72,6 +73,8 @@ if (gameBoard) {
   const cells = Array.from(gameBoard.querySelectorAll('.cell'));
   const statusText = document.getElementById('game-status');
   const resetButton = document.getElementById('reset-game');
+  const rulesButton = document.getElementById('toggle-rules');
+  const rulesPanel = document.getElementById('game-rules');
   let board = Array(9).fill('');
   let currentPlayer = 'X';
   let gameOver = false;
@@ -142,5 +145,12 @@ if (gameBoard) {
   cells.forEach(cell => cell.addEventListener('click', handleCellClick));
   if (resetButton) {
     resetButton.addEventListener('click', resetGame);
+  }
+  if (rulesButton && rulesPanel) {
+    rulesButton.addEventListener('click', () => {
+      const isExpanded = rulesButton.getAttribute('aria-expanded') === 'true';
+      rulesButton.setAttribute('aria-expanded', String(!isExpanded));
+      rulesPanel.hidden = isExpanded;
+    });
   }
 }

@@ -339,6 +339,66 @@ img {
   gap: 12px;
 }
 
+.tool-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-menu a,
+.tool-menu button {
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1e40af;
+  font: inherit;
+  font-weight: 700;
+  padding: 9px 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tool-menu a:hover,
+.tool-menu button:not(.reset-game):hover {
+  background: #dbeafe;
+}
+
+.calculator-menu {
+  grid-column: 1 / -1;
+}
+
+.game-menu {
+  margin: 0 0 16px;
+}
+
+.game-menu .reset-game {
+  padding: 9px 12px;
+}
+
+.game-rules {
+  margin-bottom: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #334155;
+  text-align: left;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .tool-menu {
+    gap: 6px;
+  }
+
+  .tool-menu a,
+  .tool-menu button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
 .server-form input,
 .server-form select {
   width: 100%;

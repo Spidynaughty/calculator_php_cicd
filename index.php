@@ -44,22 +44,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simple Calculator (HTML/CSS/JS/PHP)</title>
 <link rel="stylesheet" href="style.css">
-<h1>Sarvan sharma testing cicd pipelines
-</h1>
 </head>
 <body>
     <header class="topbar">
       <nav class="navbar">
         <div class="brand">Calculator Project</div>
-        <div class="nav-links">
+        <nav class="nav-links" aria-label="Main menu">
           <a href="#home">Home</a>
           <a href="#about">About Us</a>
-          <a href="#game">Tic Tac Toe Game</a>
-        </div>
+          <a href="#calculator">Calculator</a>
+          <a href="#server-calculator">Server Calculator</a>
+          <a href="#game">Tic Tac Toe</a>
+        </nav>
       </nav>
     </header>
 
-    <main class="container">
+    <main id="home" class="container">
       <section class="hero-banner">
         <div class="hero-copy">
           <p class="eyebrow">Play • Calculate • Learn</p>
@@ -98,7 +98,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
         <div class="game-card">
           <h2>Tic Tac Toe Game</h2>
           <p class="subtitle">Play with X and O</p>
-          <div class="status" id="game-status">Player X's turn</div>
+          <nav class="tool-menu game-menu" aria-label="Tic Tac Toe menu">
+            <a href="#tic-tac-toe-board">Play</a>
+            <button type="button" id="toggle-rules" aria-expanded="false" aria-controls="game-rules">How to Play</button>
+            <button type="button" class="reset-game" id="reset-game">New Game</button>
+          </nav>
+          <div id="game-rules" class="game-rules" hidden>
+            <p>Take turns placing X and O. The first player to make a line of three wins. If all nine squares are filled with no line, the game is a draw.</p>
+          </div>
+          <div class="status" id="game-status" role="status" aria-live="polite">Player X's turn</div>
           <div id="tic-tac-toe-board" class="tic-tac-toe-board" aria-label="Tic tac toe board">
             <button class="cell" data-index="0" aria-label="Cell 1"></button>
             <button class="cell" data-index="1" aria-label="Cell 2"></button>
@@ -110,14 +118,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
             <button class="cell" data-index="7" aria-label="Cell 8"></button>
             <button class="cell" data-index="8" aria-label="Cell 9"></button>
           </div>
-          <button class="reset-game" id="reset-game">Reset Game</button>
         </div>
       </section>
 
-      <div id="home" class="page">
+      <div class="page">
+    <nav class="tool-menu calculator-menu" aria-label="Calculator menu">
+      <a href="#calculator">JavaScript Calculator</a>
+      <a href="#server-calculator">PHP Server Calculator</a>
+    </nav>
 
     <!-- ===================== JS LIVE CALCULATOR ===================== -->
-    <div class="card">
+    <div class="card" id="calculator">
       <h2>Calculator</h2>
       <p class="subtitle">Instant calculation with JavaScript</p>
 
@@ -152,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate'])) {
     </div>
 
     <!-- ===================== PHP SERVER CALCULATOR ===================== -->
-    <div class="card">
+    <div class="card" id="server-calculator">
       <h1>Server Calculate</h1>
       <p class="subtitle">Calculation processed by PHP on the server</p>
 
